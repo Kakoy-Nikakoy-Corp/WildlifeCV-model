@@ -1,10 +1,9 @@
 from ultralytics import YOLO
 from ultralytics import settings
 from pathlib import Path
-
 import mlflow
 
-
+from config import EXPERIMENT_NAME, ARTIFACT_URI, MODEL_PATH, DATASET_URL
 
 # Create only if it doesn't exist
 experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)
