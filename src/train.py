@@ -5,18 +5,19 @@ import mlflow
 
 from config import EXPERIMENT_NAME, ARTIFACT_URI, MODEL_PATH, DATASET_URL
 
-# Create only if it doesn't exist
-experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)
-if experiment is None:
-    mlflow.create_experiment(
-        name=EXPERIMENT_NAME,
-        artifact_location=ARTIFACT_URI
-    )
+if __name__ == '__main__':
+    # Create only if it doesn't exist
+    experiment = mlflow.get_experiment_by_name(EXPERIMENT_NAME)
+    if experiment is None:
+        mlflow.create_experiment(
+            name=EXPERIMENT_NAME,
+            artifact_location=ARTIFACT_URI
+        )
 
-mlflow.set_experiment(EXPERIMENT_NAME)
-print(mlflow.get_artifact_uri())
+    mlflow.set_experiment(EXPERIMENT_NAME)
+    print(mlflow.get_artifact_uri())
 
-settings.update({'datasets_dir': str(Path('./dataset').resolve())})
+    settings.update({'datasets_dir': str(Path('./dataset').resolve())})
 
-model = YOLO(MODEL_PATH)
-model.train(cfg="data/params.yaml", name=EXPERIMENT_NAME, data=DATASET_URL)
+    model = YOLO(MODEL_PATH)
+    model.train(cfg="data/params.yaml", name=EXPERIMENT_NAME, data=DATASET_URL)

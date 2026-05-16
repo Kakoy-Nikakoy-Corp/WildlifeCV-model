@@ -1,2 +1,2 @@
-epochs: 1
-imgsz: 320
+epochs: 100
+imgsz: 640
