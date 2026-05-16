@@ -1,24 +1,26 @@
-## installation
+## Installation
 
 ```bash
-git clone ...
+git clone https://github.com/Kakoy-Nikakoy-Corp/WildlifeCV-model.git
 cd WildlifeCV-model
 
 uv sync
 ```
 
-## basic usage
-run training:
+## Basic usage
+> For these commands to work, you must create a valid `.env` file inside root directory. See the template below.
+
+Run training:
 ```bash
 uv run train-model
 ```
 
-run mlflow ui (disable redundant functionality in options later?)
+Run mlflow ui (disable redundant functionality in options later?)
 ```bash
 uv run serve-ui
 ```
 
-## .env example
+## .env template
 ```env
 # MLFlow
 EXPERIMENT_NAME=WildlifeCV
