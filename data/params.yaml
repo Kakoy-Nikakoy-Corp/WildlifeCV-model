@@ -1,4 +1,2 @@
-model: models/yolo26n.pt
-data: data/dataset.ndjson
 epochs: 1
 imgsz: 320

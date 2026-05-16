@@ -24,8 +24,9 @@ uv run serve-ui
 ```env
 # MLFlow
 EXPERIMENT_NAME=WildlifeCV
-ARTIFACT_LOCATION=<S3 URI>
 MODEL_PATH=models/yolo26n.pt
+ARTIFACT_URI=<S3 URI>
+DATASET_URL=<URL>
 
 # PostgreSQL
 MLFLOW_TRACKING_URI=<database URI>
