@@ -1,0 +1,6 @@
+import os
+
+EXPERIMENT_NAME = os.getenv('EXPERIMENT_NAME')
+MODEL_PATH = os.getenv('MODEL_PATH')
+ARTIFACT_URI = os.getenv('ARTIFACT_URI')
+DATASET_URL = os.getenv('DATASET_URL')
