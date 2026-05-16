@@ -32,7 +32,7 @@ def serve_ui():
         "--backend-store-uri",
         os.environ["MLFLOW_TRACKING_URI"],
         "--default-artifact-root",
-        os.environ["ARTIFACT_LOCATION"],
+        os.environ["ARTIFACT_URI"],
         "--workers",
         "1",
     ]
