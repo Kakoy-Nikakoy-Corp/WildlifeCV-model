@@ -4,7 +4,7 @@ imgsz: 736
 batch: 32
 
 optimizer: 'AdamW'
-lr0: 0.0015
+lr0: 0.001
 lrf: 0.01
 weight_decay: 0.0005
 single_cls: True
@@ -29,12 +29,12 @@ flipud: 0.0
 # color / lighting
 hsv_h: 0.015
 hsv_s: 0.5
-hsv_v: 0.6
+hsv_v: 0.4
 
 # compositional
 mosaic: 0.8
-close_mosaic: 10
+close_mosaic: 20
 mixup: 0.2
 
 # occlusion / robustness
-erasing: 0.25
+erasing: 0.2
