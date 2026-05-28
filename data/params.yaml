@@ -10,6 +10,11 @@ weight_decay: 0.0005
 single_cls: True
 cos_lr: True
 
+# penalties
+cls: 1.0
+box: 6.5
+dfl: 1.2
+
 # geometric
 degrees: 12.0
 translate: 0.2
