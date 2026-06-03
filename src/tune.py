@@ -6,12 +6,14 @@ from config import EXPERIMENT_NAME,  MODEL_PATH, DATASET_URL, RUN
 if __name__ == '__main__':
     model = YOLO(MODEL_PATH)
     model.tune(
-        iterations=100,
-        epochs=50,
-        patience=15,
-        batch=40,
+        iterations=30,
+        epochs=30,
+        patience=10,
+        batch=96,
         imgsz=640,
-        optimizer='MuSGD',
+        workers=16,
+        compile=True,
+        optimizer='AdamW',
         single_cls=True,
         cos_lr=True,
         project=EXPERIMENT_NAME,
