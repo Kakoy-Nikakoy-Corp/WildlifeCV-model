@@ -51,3 +51,16 @@ def train():
     ]
 
     run_command(cmd)
+
+
+def tune():
+    cmd = [
+        "uv",
+        "run",
+        "python",
+        "-X",
+        "utf8",
+        "src/tune.py",
+    ]
+
+    run_command(cmd)

@@ -53,3 +53,4 @@ package = true
 [project.scripts]
 train-model = "runner:train"
 serve-ui = "runner:serve_ui"
+tune-model = "runner:tune"
