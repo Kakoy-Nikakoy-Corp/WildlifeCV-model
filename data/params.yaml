@@ -4,7 +4,7 @@ imgsz: 960
 batch: 32
 workers: 16
 cache: 'ram'
-compile: False
+compile: 'max-autotune-no-cudagraphs'
 
 # general
 optimizer: 'AdamW'
