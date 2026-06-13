@@ -23,14 +23,14 @@ cos_lr: True
 
 # penalties
 cls: 0.2
-box: 12.5
-dfl: 2.0
+box: 7.5
+dfl: 1.5
 
 # geometric
-degrees: 12.5
+degrees: 15.0
 translate: 0.15
 scale: 0.6
-shear: 3.0
+shear: 5.0
 perspective: 0.0002
 
 # flips
