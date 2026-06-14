@@ -1,5 +1,5 @@
-epochs: 200
-patience: 30
+epochs: 300
+patience: 50
 imgsz: 800
 batch: 24
 workers: 16
@@ -23,15 +23,15 @@ cos_lr: True
 
 # penalties
 cls: 0.2
-box: 7.5
+box: 5.5
 dfl: 1.5
 
 # geometric
-degrees: 15.0
-translate: 0.15
-scale: 0.6
-shear: 5.0
-perspective: 0.0002
+degrees: 10.0
+translate: 0.1
+scale: 0.5
+shear: 2.0
+perspective: 0.0
 
 # flips
 fliplr: 0.5
