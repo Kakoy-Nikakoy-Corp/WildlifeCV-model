@@ -1,18 +1,17 @@
-epochs: 300
-patience: 40
+epochs: 200
+patience: 50
 imgsz: 640
-multi_scale: 0.5
 batch: 16
 workers: 16
 cache: 'ram'
-compile: 'max-autotune-no-cudagraphs'
+compile: False
 
 # general
-optimizer: 'AdamW'
-lr0: 0.0003
+optimizer: 'MuSGD'
+lr0: 0.001
 lrf: 0.01
-momentum: 0.95
-weight_decay: 0.0003
+momentum: 0.937
+weight_decay: 0.0005
 
 # warmup
 warmup_epochs: 8
@@ -23,16 +22,16 @@ single_cls: True
 cos_lr: True
 
 # penalties
-cls: 0.1
-box: 7.0
+cls: 0.5
+box: 7.5
 dfl: 1.5
 
 # geometric
-degrees: 10.0
-translate: 0.1
-scale: 0.5
-shear: 2.0
-perspective: 0.0
+degrees: 12.5
+translate: 0.15
+scale: 0.6
+shear: 3.0
+perspective: 0.0002
 
 # flips
 fliplr: 0.5
@@ -45,7 +44,7 @@ hsv_v: 0.5
 bgr: 0.0
 
 # compositional
-mosaic: 0.8
+mosaic: 0.85
 close_mosaic: 20
-mixup: 0.05
+mixup: 0.15
 cutmix: 0.0
