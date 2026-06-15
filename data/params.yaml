@@ -1,9 +1,9 @@
 epochs: 200
 patience: 50
 imgsz: 640
-batch: 20
+batch: 24
 workers: 16
-cache: 'ram'
+cache: 'disk'
 compile: True
 
 # general
@@ -11,7 +11,7 @@ optimizer: 'MuSGD'
 lr0: 0.0007
 lrf: 0.01
 momentum: 0.937
-weight_decay: 0.0005
+weight_decay: 0.001
 
 # warmup
 warmup_epochs: 8
@@ -27,10 +27,10 @@ box: 7.5
 dfl: 1.5
 
 # geometric
-degrees: 12.5
+degrees: 15.0
 translate: 0.15
 scale: 0.6
-shear: 3.0
+shear: 5.0
 perspective: 0.0002
 
 # flips
@@ -39,12 +39,12 @@ flipud: 0.0
 
 # color / lighting
 hsv_h: 0.015
-hsv_s: 0.8
-hsv_v: 0.5
+hsv_s: 0.9
+hsv_v: 0.6
 bgr: 0.0
 
 # compositional
 mosaic: 0.85
 close_mosaic: 20
-mixup: 0.15
+mixup: 0.2
 cutmix: 0.0
