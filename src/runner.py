@@ -64,3 +64,33 @@ def tune():
     ]
 
     run_command(cmd)
+
+
+def validate():
+    cmd = [
+        "uv",
+        "run",
+        "python",
+        "-X",
+        "utf8",
+        "src/validate.py",
+    ]
+
+    run_command(cmd)
+
+
+def export():
+    cmd = [
+        "uv",
+        "run",
+        "yolo",
+        "export",
+        f"model=runs/detect/{os.environ["EXPERIMENT_NAME"]}/{os.environ["RUN"]}/weights/best.pt",
+        "format=engine",
+        "imgsz=640",
+        "half=True",
+        "batch=32",
+        "dynamic=True",
+    ]
+
+    run_command(cmd)

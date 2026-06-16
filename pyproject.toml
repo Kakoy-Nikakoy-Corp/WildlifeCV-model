@@ -51,6 +51,7 @@ ignore = []
 package = true
 
 [project.scripts]
-train-model = "runner:train"
+train = "runner:train"
+tune = "runner:tune"
+validate = "runner:validate"
 serve-ui = "runner:serve_ui"
-tune-model = "runner:tune"
