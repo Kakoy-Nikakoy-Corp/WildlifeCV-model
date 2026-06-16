@@ -54,4 +54,5 @@ package = true
 train = "runner:train"
 tune = "runner:tune"
 validate = "runner:validate"
+export = "runner:export"
 serve-ui = "runner:serve_ui"

@@ -11,7 +11,7 @@ optimizer: 'MuSGD'
 lr0: 0.0007
 lrf: 0.01
 momentum: 0.937
-weight_decay: 0.0005
+weight_decay: 0.0007
 
 # warmup
 warmup_epochs: 8
@@ -27,9 +27,9 @@ box: 7.5
 dfl: 1.5
 
 # geometric
-degrees: 15.0
-translate: 0.1
-scale: 0.6
+degrees: 25.0
+translate: 0.15
+scale: 0.7
 shear: 5.0
 perspective: 0.0002
 
@@ -44,7 +44,7 @@ hsv_v: 0.6
 bgr: 0.0
 
 # compositional
-mosaic: 1.0
+mosaic: 0.9
 close_mosaic: 20
-mixup: 0.15
+mixup: 0.1
 cutmix: 0.0
