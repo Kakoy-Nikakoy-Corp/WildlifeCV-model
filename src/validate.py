@@ -1,4 +1,5 @@
 from ultralytics import YOLO
+import numpy as np
 import mlflow
 
 from config import EXPERIMENT_NAME, DATASET_URL, RUN
@@ -41,30 +42,51 @@ if __name__ == '__main__':
 
         mlflow.log_metrics(metrics)
 
-        conf_thresholds = results.box.px
+        # Сетка confidence: 0.00, 0.01, ..., 1.00
+        conf_grid = np.arange(0.0, 1.01, 0.01)
 
-        # Precision(conf)
-        for conf, value in zip(conf_thresholds, results.box.p_curve.mean(axis=0)):
+        # Исходная сетка YOLO
+        conf_yolo = results.box.px
+
+        # Усредняем по классам и интерполируем
+        precision_curve = np.interp(
+            conf_grid,
+            conf_yolo,
+            results.box.p_curve.mean(axis=0),
+        )
+
+        recall_curve = np.interp(
+            conf_grid,
+            conf_yolo,
+            results.box.r_curve.mean(axis=0),
+        )
+
+        f1_curve = np.interp(
+            conf_grid,
+            conf_yolo,
+            results.box.f1_curve.mean(axis=0),
+        )
+
+        # Логирование в MLflow
+        for conf, value in zip(conf_grid, precision_curve):
             mlflow.log_metric(
                 "Precision_vs_conf",
                 float(value),
-                step=int(conf * 1000),
+                step=int(conf * 100),  # 0..100
             )
 
-        # Recall(conf)
-        for conf, value in zip(conf_thresholds, results.box.r_curve.mean(axis=0)):
+        for conf, value in zip(conf_grid, recall_curve):
             mlflow.log_metric(
                 "Recall_vs_conf",
                 float(value),
-                step=int(conf * 1000),
+                step=int(conf * 100),
             )
 
-        # F1(conf)
-        for conf, value in zip(conf_thresholds, results.box.f1_curve.mean(axis=0)):
+        for conf, value in zip(conf_grid, f1_curve):
             mlflow.log_metric(
                 "F1_vs_conf",
                 float(value),
-                step=int(conf * 1000),
+                step=int(conf * 100),
             )
 
         mlflow.log_artifacts(
