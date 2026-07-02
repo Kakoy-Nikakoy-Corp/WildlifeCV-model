@@ -1,4 +1,4 @@
-## Installation
+## Установка
 
 ```bash
 git clone https://github.com/Kakoy-Nikakoy-Corp/WildlifeCV-model.git
@@ -7,25 +7,41 @@ cd WildlifeCV-model
 uv sync
 ```
 
-## Basic usage
-> For these commands to work, you must create a valid `.env` file inside root directory. See the template below.
+## Использование
+> Чтобы эти команды работали, вы должны создать корректный `.env` файл внутри корневой директории. См. шаблон ниже.
 
-Run training:
+Запуск обучения модели (с логированием в MLFlow):
 ```bash
-uv run train-model
+uv run train
 ```
 
-Run mlflow ui (disable redundant functionality in options later?)
+Валидация на тестовой выборке (с логированием в MLFlow):
+```bash
+uv run validate
+```
+
+Запуск `mlflow ui` для отслеживания результатов обучения:
 ```bash
 uv run serve-ui
 ```
 
-## .env template
-Assuming we're connected to `192.168.0.104` via WireGuard VPN, 
-and PostgreSQL+Garage are deployed there under their respective ports 
+Тюнинг гиперпараметров:
+```bash
+uv run tune
+```
+
+Экспорт модели в TensorRT-формат:
+```bash
+uv run export
+```
+
+## .env шаблон
+Предполагается, что мы подключены к `192.168.0.104` посредством WireGuard VPN, 
+и PostgreSQL+Garage развернуты на соответствующих портах. В PostgreSQL создан пользователь `irbis` и принадлежащая ему база данных `mlruns`.
 ```env
 # YOLO
-MODEL_PATH=models/yolo26n.pt
+RUN=run_gpu_5
+MODEL_PATH=models/yolo26x.pt
 DATASET_URL=https://dataset.irbis.wild1.net/dataset.ndjson
 
 # MLFlow
